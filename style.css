@@ -1,0 +1,332 @@
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --background-light: #ffffff;
+    --background-dark: #1a1a1a;
+    --text-light: #2d3436;
+    --text-dark: #f1f1f1;
+    --card-light: #ffffff;
+    --card-dark: #2d3436;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.3);
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    background: var(--background-light);
+    color: var(--text-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  body.dark-mode {
+    background: var(--background-dark);
+    color: var(--text-dark);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+  }
+  
+  .controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .search-box {
+    flex: 1;
+  }
+  
+  .search-box input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .sort-box select {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    background: var(--background-light);
+    color: var(--text-light);
+  }
+  
+  .dark-mode .sort-box select {
+    background: var(--background-dark);
+    color: var(--text-dark);
+    border-color: #444;
+  }
+  
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin: 0;
+    color: var(--primary-color);
+  }
+  
+  .theme-toggle {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .theme-toggle:hover {
+    background: var(--primary-color);
+    color: white;
+  }
+  
+  .recipe-form {
+    background: var(--card-light);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px var(--shadow-light);
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .dark-mode .recipe-form {
+    background: var(--card-dark);
+    box-shadow: 0 4px 6px var(--shadow-dark);
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .image-input-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .image-input-container span {
+    color: var(--text-light);
+    font-weight: 500;
+  }
+  
+  .dark-mode .image-input-container span {
+    color: var(--text-dark);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    background: var(--background-light);
+    color: var(--text-light);
+    transition: all 0.3s ease;
+  }
+  
+  input[type="file"] {
+    padding: 0.5rem;
+    border: 1px dashed #ddd;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  .dark-mode input[type="file"] {
+    border-color: #444;
+  }
+  
+  .dark-mode input,
+  .dark-mode textarea {
+    background: var(--background-dark);
+    color: var(--text-dark);
+    border-color: #444;
+  }
+  
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+  }
+  
+  button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-right: 0.5rem;
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 107, 107, 0.3);
+  }
+  
+  .recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .recipe-card {
+    background: var(--card-light);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px var(--shadow-light);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  .dark-mode .recipe-card {
+    background: var(--card-dark);
+    box-shadow: 0 4px 6px var(--shadow-dark);
+  }
+  
+  .recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px var(--shadow-light);
+  }
+  
+  .dark-mode .recipe-card:hover {
+    box-shadow: 0 8px 12px var(--shadow-dark);
+  }
+  
+  .recipe-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .recipe-image:hover {
+    transform: scale(1.02);
+  }
+  
+  .recipe-image-placeholder {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .recipe-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+    color: var(--primary-color);
+  }
+  
+  .recipe-section {
+    margin-bottom: 1rem;
+  }
+  
+  .recipe-section h4 {
+    color: var(--secondary-color);
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .recipe-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .edit-btn {
+    background: var(--secondary-color);
+  }
+  
+  .delete-btn {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+  }
+  
+  .delete-btn:hover {
+    background: var(--primary-color);
+    color: white;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .form-submitted {
+    animation: formSuccess 0.5s ease;
+  }
+  
+  @keyframes formSuccess {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .image-preview {
+    max-width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-top: 0.5rem;
+    display: none;
+  }
+  
+  .image-preview.visible {
+    display: block;
+  }
+  
+  #cancelBtn {
+    background-color: #666;
+  }
+  
+  #cancelBtn:hover {
+    background-color: #555;
+  }
